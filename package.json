@@ -1,6 +1,6 @@
 {
-  "name": "starter-node-angular",
-  "main": "server.js",
+  "name": "node-js-getting-started",
+  "main": "index.js",
   "dependencies": {
     "express" : "~4.5.1",
 	"mongoose" : "~3.8.0",
