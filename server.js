@@ -5,7 +5,7 @@ var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
-// configuration ===========================================
+// configuration ==========================================
 	
 // config files
 var db = require('./config/db');

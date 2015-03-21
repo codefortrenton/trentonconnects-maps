@@ -1,5 +1,5 @@
 angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
+	// learn routes!
 	$routeProvider
 
 		/*
