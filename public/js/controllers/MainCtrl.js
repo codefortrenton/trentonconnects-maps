@@ -11,7 +11,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope) {
 		// user input model
 	$scope.userinputs = {};
 	
-	
+		// pseudo datastore
 	$scope.datastorage = {};
 	$scope.empty = {};
 
