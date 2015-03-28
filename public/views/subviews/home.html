@@ -2,4 +2,26 @@
 	<h1>Home sweet home</h1>
 
 	<p>{{ tagline }}</p>
+	
+	<!-- BEGIN MADLIB EXERCISE -->
+	<div style="background-color: #000; height: 3px; width: 100%;"></div>
+	
+	<div ng-controller="MainController">
+		<p>{{ description_one }}&nbsp;{{ userinputs.one }}&nbsp;{{ description_two }}&nbsp;{{ userinputs.two }}&nbsp;{{ description_three }}&nbsp;{{ userinputs.three }}&nsbp;{{ userinputs.four }}&nbsp;{{ description_four }}</p>
+	
+		<form name="madlib_form" action="post">
+			<label for="input_one">Enter an animal:</label>
+			<input type="text" name="input_one" ng-model="userinputs.one" placeholder="animal" />
+		
+			<label for="input_one">Enter an object of great value:</label>
+			<input type="text" name="input_two" ng-model="userinputs.two" placeholder="object" />
+		
+			<label for="input_one">Enter a verb:</label>
+			<input type="text" name="input_three" ng-model="userinputs.three" placeholder="verb" />
+			<label for="input_one">Enter an adverb:</label>
+			<input type="text" name="input_four" ng-model="userinputs.four" placeholder="adverb" />
+		
+			<input type="submit" name="submit_button" value="Save to Database" disabled="disabled" />
+		</form>
+	</div>
 </div>
