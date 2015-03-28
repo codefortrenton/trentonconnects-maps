@@ -10,5 +10,23 @@ angular.module('MainCtrl', []).controller('MainController', function($scope) {
 	$scope.description_four = 'towards the river.';
 		// user input model
 	$scope.userinputs = {};
+	
+	
+	$scope.datastorage = {};
+	$scope.empty = {};
+
+	$scope.update = function(userinputs) {
+		$scope.datastorage = angular.copy(userinputs);
+	};
+	
+	$scope.reset = function() {
+		$scope.userinputs = angular.copy($scope.empty);
+	};
+	
+	$scope.fetch = function() {
+		$scope.userinputs = angular.copy($scope.datastorage);
+	};
+	
+	//$scope.reset();
 
 });

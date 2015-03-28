@@ -11,21 +11,28 @@
 		<p>{{ description_one }}&nbsp;<span class="added_info">{{ userinputs.one }}</span>&nbsp;{{ description_two }}&nbsp;<span class="added_info">{{ userinputs.two }}</span>&nbsp;{{ description_three }}&nbsp;<span class="added_info">{{ userinputs.three }}&nbsp;{{ userinputs.four }}</span>&nbsp;{{ description_four }}</p>
 	
 		<form name="madlib_form" action="post">
-			<label for="input_one">Enter an animal:</label>
-			<input type="text" name="input_one" ng-model="userinputs.one" placeholder="animal" />
-			<br />
-			<br />
-			<label for="input_one">Enter an object of great value:</label>
-			<input type="text" name="input_two" ng-model="userinputs.two" placeholder="object" />
-			<br />
-			<br />
-			<label for="input_one">Enter a verb:</label>
-			<input type="text" name="input_three" ng-model="userinputs.three" placeholder="verb" />
-			<br />
-			<label for="input_one">Enter an adverb:</label>
-			<input type="text" name="input_four" ng-model="userinputs.four" placeholder="adverb" />
-		
-			<input type="submit" name="submit_button" value="Save to Database" disabled="disabled" />
+			<div style="float:left;">
+				<label for="input_one">Enter an animal:</label>
+				<input type="text" name="input_one" ng-model="userinputs.one" placeholder="animal" />
+				<br />
+				<br />
+				<label for="input_one">Enter an object of great value:</label>
+				<input type="text" name="input_two" ng-model="userinputs.two" placeholder="object" />
+				<br />
+				<br />
+				<label for="input_one">Enter a verb:</label>
+				<input type="text" name="input_three" ng-model="userinputs.three" placeholder="verb" />
+				<br />
+				<label for="input_one">Enter an adverb:</label>
+				<input type="text" name="input_four" ng-model="userinputs.four" placeholder="adverb" />
+				<br />
+				<input type="button" name="reset_button" ng-click="reset()" value="Reset Fields" />
+				<input type="submit" name="submit_button" ng-click="update(userinputs)" value="Save to Database" disabled="disabled" />
+				<input type="button" name="fetch_button" ng-click="fetch()" value="Fetch Input" />
+			</div>
 		</form>
+		
+		<pre>form = {{ userinputs | json }}</pre>
+		<pre>form = {{ datastorage | json }}</pre>
 	</div>
 </div>
