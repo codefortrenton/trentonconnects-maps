@@ -8,7 +8,16 @@
 	
 	<div ng-controller="MainController">
 		<h3>Madlib!</h3>
-		<p>{{ description_one }}&nbsp;<span class="added_info">{{ userinputs.animal }}</span>&nbsp;{{ description_two }}&nbsp;<span class="added_info">{{ userinputs.object }}</span>&nbsp;{{ description_three }}&nbsp;<span class="added_info">{{ userinputs.verb }}&nbsp;{{ userinputs.adverb }}</span>&nbsp;{{ description_four }}</p>
+		<p>
+			{{ description_one }}&nbsp;
+			<span class="added_info">{{ userinputs.animal }}</span>&nbsp;
+			{{ description_two }}&nbsp;
+			<span class="added_info">{{ userinputs.object }}</span>&nbsp;
+			{{ description_three }}&nbsp;
+			<span class="added_info">{{ userinputs.verb }}</span>&nbsp;
+			<span class="added_info">{{ userinputs.adverb }}</span>&nbsp;
+			{{ description_four }}
+		</p>
 	
 		<form name="madlib_form" action="post">
 			<div style="">
@@ -26,13 +35,15 @@
 				<label for="input_one">Enter an adverb:</label>
 				<input type="text" name="input_four" ng-model="userinputs.adverb" placeholder="adverb" />
 				<br />
+				<br />
 				<input type="button" name="reset_button" ng-click="reset()" value="Reset Fields" />
-				<input type="submit" name="submit_button" ng-click="update(userinputs)" value="Save to Database" />
+				<input type="button" name="submit_button" ng-click="update(userinputs)" value="Save to Database" />
 				<input type="button" name="fetch_button" ng-click="fetch()" value="Fetch Input" />
 			</div>
 		</form>
-		
-		<pre>form = {{ userinputs | json }}</pre>
-		<pre>form = {{ datastorage | json }}</pre>
+		<br />
+		<br />
+		<pre>user inputs = {{ userinputs | json }}</pre>
+		<pre>data storage = {{ datastorage | json }}</pre>
 	</div>
 </div>
