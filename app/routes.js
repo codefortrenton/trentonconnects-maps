@@ -1,4 +1,5 @@
 var Nerd = require('./models/Nerd');
+var MadlibData = require('./models/Madlib');
 
 module.exports = function(app) {
 
@@ -15,6 +16,17 @@ module.exports = function(app) {
 				res.send(err);
 			
 			res.json(nerds);
+		});
+	});
+	
+	app.get('/datastorage/madlib', function(req, res) {
+		
+		Madlib.find(function(err, madlibs) {
+			
+			if (err)
+				res.send(err);
+			
+			res.json(madlibs);
 		});
 	});
 
