@@ -32,18 +32,24 @@
 				<label for="input_one">Enter a verb (past tense):</label>
 				<input type="text" name="input_three" ng-model="userinputs.verb" placeholder="verb" />
 				<br />
+				<br />
 				<label for="input_one">Enter an adverb:</label>
 				<input type="text" name="input_four" ng-model="userinputs.adverb" placeholder="adverb" />
 				<br />
 				<br />
 				<input type="button" name="reset_button" ng-click="reset()" value="Reset Fields" />
-				<input type="button" name="submit_button" ng-click="update(userinputs)" value="Save to Database" />
-				<input type="button" name="fetch_button" ng-click="fetch()" value="Fetch Input" />
+				<input type="button" name="submit_button" ng-click="createMadlib()" value="Save to Database" />
+				<!--<input type="button" name="fetch_button" ng-click="fetch()" value="Fetch Input" />-->
 			</div>
 		</form>
 		<br />
 		<br />
 		<pre>user inputs = {{ userinputs | json }}</pre>
-		<pre>data storage = {{ datastorage | json }}</pre>
+		<pre>data storage = 
+		<div class="checkbox" ng-repeat="madlib in datastorage">
+					<label>
+						<input type="checkbox" ng-click="deleteMadlib(madlib._id)"> {{ madlib | json }}
+					</label>
+				</div></pre>
 	</div>
 </div>

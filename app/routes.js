@@ -1,5 +1,5 @@
 var Nerd = require('./models/Nerd');
-var MadlibData = require('./models/Madlib');
+var Madlib = require('./models/Madlib');
 
 module.exports = function(app) {
 
@@ -7,39 +7,65 @@ module.exports = function(app) {
 	// handle things like api calls
 	// authentication routes
 	
-	//sample api route
-	app.get('/api/nerds', function(req, res) {
-		
-		Nerd.find(function(err, nerds) {
-			
+		// api ---------------------------------------------------------------------
+	// get all todos
+	app.get('/api/madlib', function(req, res) {
+
+		// use mongoose to get all todos in the database
+		Madlib.find(function(err, madlibs) {
+
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 			if (err)
-				res.send(err);
-			
-			res.json(nerds);
+				res.send(err)
+
+			res.json(madlibs); // return all todos in JSON format
 		});
 	});
-	
-	app.get('/datastorage/madlib', function(req, res) {
-		
-		Madlib.find(function(err, madlibs) {
-			
+
+	// create todo and send back all todos after creation
+	app.post('/api/madlib', function(req, res) {
+
+		// create a todo, information comes from AJAX request from Angular
+		Madlib.create({
+			animal: req.body.animal,
+			object: req.body.object, 
+			verb: req.body.verb,
+			adverb: req.body.adverb,
+		}, function(err, madlib) {
 			if (err)
 				res.send(err);
-			
-			res.json(madlibs);
+
+			// get and return all the todos after you create another
+			Madlib.find(function(err, madlibs) {
+				if (err)
+					res.send(err)
+				res.json(madlibs);
+			});
+		});
+
+	});
+
+	// delete a todo
+	app.delete('/api/madlib/:madlib_id', function(req, res) {
+		Madlib.remove({
+			_id : req.params.madlib_id
+		}, function(err, todo) {
+			if (err)
+				res.send(err);
+
+			// get and return all the todos after you create another
+			Madlib.find(function(err, madlibs) {
+				if (err)
+					res.send(err)
+				res.json(madlibs);
+			});
 		});
 	});
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
 	app.get('*', function(req, res) {
-		/*
-		res.sendFile('./public/views/index.html'); 
-		//res.sendFile('./public/index.html'); // load our public/index.html file
-		*/
 		res.sendfile('./public/views/index.html'); 
-		//res.sendfile('./public/index.html'); // load our public/index.html file
-		
 	});
 
 };
