@@ -1,6 +1,6 @@
 angular.module('MainCtrl', []).controller('MainController', function($scope, $http, Madlibs) {
 	// insert a new tagline to edit content on the site!
-	$scope.tagline = 'The place for cool madlibs!';
+	$scope.tagline = 'The place for cool madlibs !';
 	
 	// begin madlib exercise
 		// description parts
