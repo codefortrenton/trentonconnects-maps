@@ -24,18 +24,18 @@
 				<label for="input_one">Enter an animal:</label>
 				<select name="input_one"
 						ng-model="userinputs.animal" 
-				        ng-options="selectedAnimal as selectedAnimal for selectedAnimal in info.Animals" />
+				        ng-options="selectedAnimal as selectedAnimal for selectedAnimal in animalList.Animals" />
 				<br />
 				<br />
-				<label for="input_one">Enter an object of great value:</label>
+				<label for="input_two">Enter an object of great value:</label>
 				<input type="text" name="input_two" ng-model="userinputs.object" placeholder="object" />
 				<br />
 				<br />
-				<label for="input_one">Enter a verb (past tense):</label>
+				<label for="input_three">Enter a verb (past tense):</label>
 				<input type="text" name="input_three" ng-model="userinputs.verb" placeholder="verb" />
 				<br />
 				<br />
-				<label for="input_one">Enter an adverb:</label>
+				<label for="input_four">Enter an adverb:</label>
 				<input type="text" name="input_four" ng-model="userinputs.adverb" placeholder="adverb" />
 				<br />
 				<br />

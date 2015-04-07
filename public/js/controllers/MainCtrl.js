@@ -12,7 +12,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ht
 	$scope.userinputs = {};
 	$scope.datastorage = [];
 	
-	$scope.info = {Animals : [ "dog", "cat", "bat", "bird" ]};
+	$scope.animalList = {Animals : [ "dog", "cat", "bat", "bird" ]};
 	
 		// pseudo datastore
 	Madlibs.get()
