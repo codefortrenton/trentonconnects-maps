@@ -22,14 +22,9 @@
 		<form name="madlib_form" action="post">
 			<div style="">
 				<label for="input_one">Enter an animal:</label>
-				<select name="input_one">
-					<option value="duck" ng-model="userinputs.animal">duck</option>
-					<option value="bear" ng-model="userinputs.animal">bear</option>
-					<option value="wolf" ng-model="userinputs.animal">wolf</option>
-					<option value="fox" ng-model="userinputs.animal">fox</option>
-					<option value="dog" ng-model="userinputs.animal">dog</option>
-					<option value="cat" ng-model="userinputs.animal">cat</option>
-				</select>
+				<select name="input_one"
+						ng-model="userinputs.animal" 
+				        ng-options="animal as animal.Name for animal in info.Animals" />
 				<br />
 				<br />
 				<label for="input_one">Enter an object of great value:</label>
