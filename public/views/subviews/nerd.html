@@ -4,6 +4,29 @@
 	<p>{{ tagline }}</p>
 	
 	<div id='bodydiv'>
+		
+	<script>
+		var map;
+		function initcarto(){
+		  // initiate leaflet map
+		  map = new L.Map('cartodb-map', {
+		    center: [0,0],
+		    zoom: 2
+		  })
+
+		  var layerUrl = 'http://documentation.cartodb.com/api/v2/viz/836e37ca-085a-11e4-8834-0edbca4b5057/viz.json';
+
+		  cartodb.createLayer(map, layerUrl)
+		    .addTo(map)
+		    .on('done', function(layer) {
+
+		    }).on('error', function() {
+		      //log the error
+		    });
+		}
+	</script>
+		
+	<div id="cartodb-map"></div>
 	
 	<div id='map' class="leaflet-container">
 		<!-- The below code will create the button design in the correct place,
