@@ -2,16 +2,16 @@ body { padding-top:30px; }
 div { font-size:16px; }
 .added_info { font-weight:bold; text-decoration:underline; }
 
-body { margin:0; padding:0; }
+#bodydiv { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:50%; }
 #form {float: right; top:0; bottom:0; width:50%}
-body {
+#bodydiv {
 font-family:verdana;
 font-size:15px;
 }
 
-a {color:#333; text-decoration:none}
-a:hover {color:#ccc; text-decoration:none}
+.body-a {color:#333; text-decoration:none}
+.body-a:hover {color:#ccc; text-decoration:none}
 
 .menu-ui {
   background:#fff;

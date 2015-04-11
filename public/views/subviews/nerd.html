@@ -3,6 +3,8 @@
 
 	<p>{{ tagline }}</p>
 	
+	<div id='bodydiv'>
+	
 	<div id='map' class="leaflet-container">
 		<!-- The below code will create the button design in the correct place,
 		but does not make zoom buttons that work.
@@ -51,7 +53,7 @@
 	// Pull tile design
 
 	var OpenStreetMap_DE = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		attribution: '&copy; <a class="body-a" href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a class="body-a" href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 	});
 
 
@@ -253,4 +255,5 @@
 	});
 	*/
 	</script>
+</div>
 </div>
