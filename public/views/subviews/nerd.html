@@ -6,27 +6,53 @@
 	<div id='bodydiv'>
 		
 	<script>
-		var map;
-		function initcarto(){
-		  // initiate leaflet map
-		  map = new L.Map('cartodb-map', {
-		    center: [0,0],
-		    zoom: 2
-		  })
+		var myApp = angular.module('myApp', []);
+		myApp.value('mapId', 'mymap');
+		
+		myApp.value('tiles', 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png');
 
-		  var layerUrl = 'http://documentation.cartodb.com/api/v2/viz/836e37ca-085a-11e4-8834-0edbca4b5057/viz.json';
+		myApp.value('layerData', {
+			  user_name: 'eczajk1',
+			  sublayers: [{
+			    name: "sample data",
+			    sql: "SELECT * FROM tl_2014_us_cd114 WHERE statefp = '24'",
+		        cartocss: "#tl_2014_us_cd114{ polygon-fill: #FF6600; polygon-opacity: 0.7; line-color: #FFF; line-width: 1; line-opacity: 1;}"
+			  }]
+		});
+		
+		myApp.directive('mymap', function (mapId, tiles, layerData) {
 
-		  cartodb.createLayer(map, layerUrl)
-		    .addTo(map)
-		    .on('done', function(layer) {
+		    return {
 
-		    }).on('error', function() {
-		      //log the error
-		    });
-		}
+		        restrict: 'A',
+		        template: '<div id="mymap"></div>',
+
+		        link: function (scope, elm, attrs, controller) {
+
+		            var map = L.map(mapId, {
+		                zoom: 7,
+		                minZoom: 6,
+		                maxZoom: 19,
+		                center: [39, -77],
+		                zoomControl: false,
+		            });
+		            var tl = L.tileLayer(tiles);
+		            tl.addTo(map);
+
+		            cartodb.Tiles.getTiles(layerData, function (cdbtiles, err) {
+		                if (cdbtiles == null) {
+		                    console.log("error: ", err.errors.join('\n'));
+		                    return;
+		                }
+                
+		                L.tileLayer(cdbtiles.tiles[0]).addTo(map);
+		            });
+		        }
+		    }
+		});
 	</script>
 		
-	<div id="cartodb-map"></div>
+	<div mymap></div>
 	
 	
 </div>
