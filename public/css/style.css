@@ -3,8 +3,8 @@ div { font-size:16px; }
 .added_info { font-weight:bold; text-decoration:underline; }
 
 #bodydiv { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:50%; }
-#form {float: right; top:0; bottom:0; width:50%}
+#map { width:50%; }
+#form {float: right; width:50%}
 #bodydiv {
 font-family:verdana;
 font-size:15px;
